@@ -25,8 +25,9 @@ Hay distintos roles, cada uno con distintas funciones y derechos.
     let c = {};
     SupplyChain.deployed().then((_c) => c = _c);
 
-Ahora la variable "c" representa el contrato.
-Los valores de las address se acceden desde Gnache
+Ahora la variable "c" sirve para llamar a los metodos del contrato.
+
+Los valores de las address se acceden desde Ganache
 
 ## Funciones de roles
 
