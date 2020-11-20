@@ -19,21 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c3f1dd4-7740-4651-97f0-b29138f17b95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/AdminRole.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/ConsumerRole.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/HospitalRole.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/ProducerRole.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/RetailerRole.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/Roles.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Roles.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/SupplyChain.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/SupplyChain.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugbase/SupplyChain.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/drugcore/Ownable.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/tokens/MedicationToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/tokens/MedicationToken.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/truffle-config.js" afterDir="false" />
-    </list>
+    <list default="true" id="1c3f1dd4-7740-4651-97f0-b29138f17b95" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605807030822</updated>
       <workItem from="1605807032309" duration="5635000" />
-      <workItem from="1605821203089" duration="24290000" />
+      <workItem from="1605821203089" duration="24541000" />
     </task>
     <servers />
   </component>
