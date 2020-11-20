@@ -105,23 +105,24 @@ contract SupplyChain {
     }
 
     function addPrescription(address account, uint256 medicationId) public {
-        require(isDoctor(account));
+        require(isDoctor(msg.sender));
         require(MedicationToken(token).isDrugInStore(medicationId));
         prescriptions[medicationId] = Prescription(account, false);
     }
 
     function usePrescription(address account, uint256 medicationId) public {
-        require(isPharmacy(account));
+        require(isPharmacy(msg.sender));
         prescriptions[medicationId].alreadyUsed = true;
         MedicationToken(token).sellToken(medicationId);
     }
 
-    function transferTkToStore(uint256 medicationId) public onlyProducer {
+    function transferTkToStore(uint256 medicationId, address storeAccount) public onlyProducer {
+        require(isPharmacy(storeAccount));
         MedicationToken(token).transferTkToStore(medicationId);
     }
 
     function mintMTk(uint256 _id, string memory _name, bool _requiresPrescription) public onlyProducer {
-        MedicationToken(token).createToken(_id, _name, _requiresPrescription, now);
+        MedicationToken(token).createToken(_id, _name, _requiresPrescription, msg.sender, now);
     }
 
 }
