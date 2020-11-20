@@ -20,7 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c3f1dd4-7740-4651-97f0-b29138f17b95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/Roles.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/drugaccesscontrol/Roles.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/AdminRole.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/ConsumerRole.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/HospitalRole.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/ProducerRole.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/RetailerRole.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/Roles.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Roles.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugaccesscontrol/SupplyChain.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/SupplyChain.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugbase/SupplyChain.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/drugcore/Ownable.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/tokens/MedicationToken.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/tokens/MedicationToken.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/truffle-config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,12 +60,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.19.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Facultad\blockchain\obligatorio\contracts\tokens" />
+      <recent name="D:\Facultad\blockchain\obligatorio\contracts" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -65,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605807030822</updated>
       <workItem from="1605807032309" duration="5635000" />
-      <workItem from="1605821203089" duration="7916000" />
+      <workItem from="1605821203089" duration="24290000" />
     </task>
     <servers />
   </component>

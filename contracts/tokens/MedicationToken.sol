@@ -4,12 +4,8 @@ import "../../node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract MedicationToken is ERC721 {
 
-    string public name = "MedicationToken";
-    string public symbol = "MTK";
-    address minter;
+    constructor () ERC721("MedicationToken", "MTK") public {
 
-    constructor() public {
-        minter = msg.sender;
     }
 
     enum State {
@@ -26,11 +22,6 @@ contract MedicationToken is ERC721 {
 
     mapping(uint256 => Drug) public drugs;
 
-    modifier onlyAdmin() {
-        require(msg.sender == minter);
-        _;
-    }
-
     function drugExists(uint256 _id) public view returns(bool) {
         return drugs[_id].creationDate > 0;
     }
@@ -40,8 +31,23 @@ contract MedicationToken is ERC721 {
         return drugs[_id].currentState == State.InStore;
     }
 
-    function mint(address memory _receiver, uint256 _id, string _name, bool _requiresPrescription) public {
-        drugs[_id] = Drug(_id, _name, _requiresPrescription, now, State.Produced);
+    function isDrugProduced(uint256 _id) public view returns(bool) {
+        require(drugExists(_id));
+        return drugs[_id].currentState == State.Produced;
+    }
+
+    function sellToken(uint256 _id) public {
+        require(isDrugInStore(_id));
+        drugs[_id].currentState = State.Sold;
+    }
+
+    function transferTkToStore(uint256 _id) public {
+        require(isDrugProduced(_id));
+        drugs[_id].currentState = State.InStore;
+    }
+
+    function createToken(uint256 _id, string memory _name, bool _requiresPrescription, uint256 creationTime) public {
+        drugs[_id] = Drug(_id, _name, _requiresPrescription, creationTime, State.Produced);
     }
 
 }

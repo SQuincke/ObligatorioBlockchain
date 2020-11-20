@@ -1,7 +1,7 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.6.0;
 
 import "./Roles.sol";
-import "../tokens/MedicationToken.sol";
+import "./tokens/MedicationToken.sol";
 
 contract SupplyChain {
 
@@ -17,14 +17,22 @@ contract SupplyChain {
     Roles.Role doctors;
     Roles.Role patients;
 
-    struct
+    address public token;
+
+    mapping(uint256 => Prescription) prescriptions;
+
+    struct Prescription {
+        address account;
+        bool alreadyUsed;
+    }
 
     enum RoleType {
         Admin, Hospital, Producer, Pharmacy, Doctor, Patient
     }
 
-    constructor () public {
+    constructor (address _token) public {
         admins.bearer[msg.sender] = true;
+        token = _token;
     }
 
     modifier onlyAdmin() {
@@ -37,6 +45,10 @@ contract SupplyChain {
         _;
     }
 
+    modifier onlyProducer() {
+        require(isProducer(msg.sender));
+        _;
+    }
 
     function isAdmin(address account) public view returns (bool) {
         return admins.has(account);
@@ -78,7 +90,7 @@ contract SupplyChain {
     }
 
     function addPharmacy(address account) public onlyAdmin {
-        doctors.add(account);
+        pharmacies.add(account);
         emit RoleAdded(account, RoleType.Pharmacy);
     }
 
@@ -94,7 +106,22 @@ contract SupplyChain {
 
     function addPrescription(address account, uint256 medicationId) public {
         require(isDoctor(account));
-        require(MedicationToken.isDrugInStore(medicationId));
-
+        require(MedicationToken(token).isDrugInStore(medicationId));
+        prescriptions[medicationId] = Prescription(account, false);
     }
+
+    function usePrescription(address account, uint256 medicationId) public {
+        require(isPharmacy(account));
+        prescriptions[medicationId].alreadyUsed = true;
+        MedicationToken(token).sellToken(medicationId);
+    }
+
+    function transferTkToStore(uint256 medicationId) public onlyProducer {
+        MedicationToken(token).transferTkToStore(medicationId);
+    }
+
+    function mintMTk(uint256 _id, string memory _name, bool _requiresPrescription) public onlyProducer {
+        MedicationToken(token).createToken(_id, _name, _requiresPrescription, now);
+    }
+
 }
