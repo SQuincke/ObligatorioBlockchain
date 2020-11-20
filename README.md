@@ -17,7 +17,7 @@ Hay distintos roles, cada uno con distintas funciones y derechos.
 - Doctores
 - Pacientes
 
-## Funciones de Roles
+## Comandos para comenzar
 
 > Estando en modo desarrollador
 
@@ -27,6 +27,8 @@ Hay distintos roles, cada uno con distintas funciones y derechos.
 
 Ahora la variable "c" representa el contrato.
 Los valores de las address se acceden desde Gnache
+
+## Funciones de roles
 
 #### Administrador:
 
