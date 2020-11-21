@@ -37,10 +37,15 @@ contract MedicationToken is ERC721 {
         return drugs[_id].currentState == State.Produced;
     }
 
-    function sellToken(uint256 _id) public {
+    function isDrugInSpecifiedLocation(uint256 _id, address storeAccount) public view returns(bool) {
+        require(drugExists(_id));
+        return drugs[_id].locationAddress == storeAccount;
+    }
+
+    function sellToken(uint256 _id, address account) public {
         require(isDrugInStore(_id));
         drugs[_id].currentState = State.Sold;
-        drugs[_id].locationAddress = 0x0;
+        drugs[_id].locationAddress = account;
     }
 
     function transferTkToStore(uint256 _id, address account) public {
@@ -50,6 +55,7 @@ contract MedicationToken is ERC721 {
     }
 
     function createToken(uint256 _id, string memory _name, bool _requiresPrescription, address account, uint256 creationTime) public {
+        require(!drugExists(_id));
         drugs[_id] = Drug(_id, _name, _requiresPrescription, account, creationTime, State.Produced);
     }
 

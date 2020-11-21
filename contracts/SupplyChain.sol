@@ -74,6 +74,10 @@ contract SupplyChain {
         return patients.has(account);
     }
 
+    function isRightLocation(uint256 medicationId, address account) public view returns (bool) {
+        return MedicationToken(token).isDrugInSpecifiedLocation(medicationId, account);
+    }
+
     function addAdmin(address account) public onlyAdmin {
         admins.add(account);
         emit RoleAdded(account, RoleType.Admin);
@@ -106,19 +110,23 @@ contract SupplyChain {
 
     function addPrescription(address account, uint256 medicationId) public {
         require(isDoctor(msg.sender));
+        require(isPatient(account));
         require(MedicationToken(token).isDrugInStore(medicationId));
         prescriptions[medicationId] = Prescription(account, false);
     }
 
     function usePrescription(address account, uint256 medicationId) public {
         require(isPharmacy(msg.sender));
+        require(isRightLocation(medicationId, msg.sender));
+        require(isPatient(account));
         prescriptions[medicationId].alreadyUsed = true;
-        MedicationToken(token).sellToken(medicationId);
+        MedicationToken(token).sellToken(medicationId, account);
     }
 
     function transferTkToStore(uint256 medicationId, address storeAccount) public onlyProducer {
+        require(isRightLocation(medicationId, msg.sender));
         require(isPharmacy(storeAccount));
-        MedicationToken(token).transferTkToStore(medicationId);
+        MedicationToken(token).transferTkToStore(medicationId, storeAccount);
     }
 
     function mintMTk(uint256 _id, string memory _name, bool _requiresPrescription) public onlyProducer {

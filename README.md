@@ -105,6 +105,6 @@ Retirar medicamento:
     
     c.usePrescription(address_cliente, id_medicamento)
     
-Crear receta nueva (requiere_receta es un bool):
+Crear medicamento nuevo (requiere_receta es un bool):
 
     c.mintMTk(id_medicamento, nombre_medicamento, requiere_receta)
