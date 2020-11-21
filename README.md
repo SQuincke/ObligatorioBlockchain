@@ -19,8 +19,14 @@ Hay distintos roles, cada uno con distintas funciones y derechos.
 
 ## Comandos para comenzar
 
-> Estando en modo desarrollador
+> Entrando en modo desarrollador
 
+Abrir la consola y moverse al directorio del proyecto.
+
+    truffle develop
+    
+> Sincronizar con Ganache
+    
     migrate --reset
     let c = {};
     SupplyChain.deployed().then((_c) => c = _c);
@@ -89,17 +95,17 @@ Transferir a tienda:
 
 Agregar:
     
-    c.addPatient(address)
+    c.addPatient(address_usuario)
     
 Verificar (devuelve true o false):
     
-    c.isPatient(address)
+    c.isPatient(address_usuario)
     
 #### Receta:
 
 Agregar:
     
-    c.addPrescription(address)
+    c.addPrescription(address_usuario, id_medicamento)
     
 Retirar medicamento:
     
